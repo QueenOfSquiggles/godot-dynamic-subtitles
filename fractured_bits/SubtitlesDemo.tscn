@@ -1,10 +1,16 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://addons/subtitles/scenes/SubtitleData.gd" type="Script" id=1]
-[ext_resource path="res://testing/resources/object_mat.tres" type="Material" id=2]
-[ext_resource path="res://testing/resources/impactMetal_000.ogg" type="AudioStream" id=3]
 [ext_resource path="res://testing/textures/christmas_photo_studio_05_4k.hdr" type="Texture" id=4]
-[ext_resource path="res://testing/scripts/AudioVisualObject.gd" type="Script" id=5]
+[ext_resource path="res://testing/scenes/AudioVisualObject.tscn" type="PackedScene" id=6]
+
+[sub_resource type="ProceduralSky" id=6]
+ground_bottom_color = Color( 0.568627, 0.745098, 0.92549, 1 )
+ground_horizon_color = Color( 0, 0.0862745, 0.784314, 1 )
+ground_curve = 0.0546418
+
+[sub_resource type="Environment" id=7]
+background_mode = 2
+background_sky = SubResource( 6 )
 
 [sub_resource type="PanoramaSky" id=1]
 panorama = ExtResource( 4 )
@@ -12,10 +18,6 @@ panorama = ExtResource( 4 )
 [sub_resource type="Environment" id=2]
 background_mode = 2
 background_sky = SubResource( 1 )
-
-[sub_resource type="SphereMesh" id=3]
-radius = 0.5
-height = 1.0
 
 [sub_resource type="Animation" id=4]
 length = 0.001
@@ -164,10 +166,10 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 8, 11, 26 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 8, 11, 12, 26 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0, 1.53584, 0 ), Vector3( 0, 1.53584, 0 ), Vector3( -8.29733, 7.14249, 6.30877 ), Vector3( 0, 1.53584, 0 ) ]
+"values": [ Vector3( 0, 1.53584, 0 ), Vector3( 0, 1.53584, 0 ), Vector3( -8.29733, 7.14249, 6.30877 ), Vector3( 0, 1.53584, 0 ), Vector3( 0, 1.53584, 0 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("Camera:rotation_degrees")
@@ -176,10 +178,10 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 2, 4, 6, 8, 11, 26 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 2, 4, 6, 8, 11, 12, 26 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 90, 0 ), Vector3( 0, 180, 0 ), Vector3( 0, 270, 0 ), Vector3( 0, 360, 0 ), Vector3( -45.612, -50.158, 0 ), Vector3( 0, 0, 0 ) ]
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 90, 0 ), Vector3( 0, 180, 0 ), Vector3( 0, 270, 0 ), Vector3( 0, 360, 0 ), Vector3( -45.612, -50.158, 0 ), Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ) ]
 }
 tracks/6/type = "value"
 tracks/6/path = NodePath("Camera2:current")
@@ -201,121 +203,21 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.53584, 0 )
 current = true
 
 [node name="Camera2" type="Camera" parent="."]
-transform = Transform( 0.994109, -0.0142853, 0.107436, 0, 0.991275, 0.131807, -0.108381, -0.13103, 0.985436, 5.73682, 6.74087, 28.1981 )
+transform = Transform( 0.994109, -0.0142853, 0.107435, 0, 0.991275, 0.131807, -0.108381, -0.13103, 0.985436, 5.73682, 6.74087, 28.1981 )
+environment = SubResource( 7 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 2 )
 
-[node name="AudioVisualObject" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.72074 )
-mesh = SubResource( 3 )
-material/0 = ExtResource( 2 )
-script = ExtResource( 5 )
+[node name="AudioVisualObject" parent="." instance=ExtResource( 6 )]
 
-[node name="AudioTest3D" type="AudioStreamPlayer3D" parent="AudioVisualObject"]
-stream = ExtResource( 3 )
+[node name="AudioVisualObject2" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36.9395, 0, -5.7823 )
 
-[node name="SubtitleData" type="Node" parent="AudioVisualObject/AudioTest3D"]
-script = ExtResource( 1 )
-subtitle_key = "sub_test"
-subtitles_padding = 0.3
-
-[node name="Timer" type="Timer" parent="AudioVisualObject"]
-autostart = true
-
-[node name="AudioVisualObject2" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6997, 4.7684, -1.4425 )
-mesh = SubResource( 3 )
-material/0 = ExtResource( 2 )
-script = ExtResource( 5 )
-
-[node name="AudioTest3D" type="AudioStreamPlayer3D" parent="AudioVisualObject2"]
-stream = ExtResource( 3 )
-
-[node name="SubtitleData" type="Node" parent="AudioVisualObject2/AudioTest3D"]
-script = ExtResource( 1 )
-subtitle_key = "sub_test"
-subtitles_padding = 0.3
-
-[node name="Timer" type="Timer" parent="AudioVisualObject2"]
-autostart = true
-
-[node name="AudioVisualObject3" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.451752, -3.69114, 9.95727 )
-mesh = SubResource( 3 )
-material/0 = ExtResource( 2 )
-script = ExtResource( 5 )
-
-[node name="AudioTest3D" type="AudioStreamPlayer3D" parent="AudioVisualObject3"]
-stream = ExtResource( 3 )
-
-[node name="SubtitleData" type="Node" parent="AudioVisualObject3/AudioTest3D"]
-script = ExtResource( 1 )
-subtitle_key = "sub_test"
-subtitles_padding = 0.3
-
-[node name="Timer" type="Timer" parent="AudioVisualObject3"]
-autostart = true
-
-[node name="AudioVisualObject4" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.3982, 4.7684, 8.48633 )
-mesh = SubResource( 3 )
-material/0 = ExtResource( 2 )
-script = ExtResource( 5 )
-
-[node name="AudioTest3D" type="AudioStreamPlayer3D" parent="AudioVisualObject4"]
-stream = ExtResource( 3 )
-
-[node name="SubtitleData" type="Node" parent="AudioVisualObject4/AudioTest3D"]
-script = ExtResource( 1 )
-subtitle_key = "sub_test"
-subtitles_padding = 0.3
-
-[node name="Timer" type="Timer" parent="AudioVisualObject4"]
-autostart = true
-
-[node name="AudioVisualObject5" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.0192, 4.7684, -5.39565 )
-mesh = SubResource( 3 )
-material/0 = ExtResource( 2 )
-script = ExtResource( 5 )
-
-[node name="AudioTest3D" type="AudioStreamPlayer3D" parent="AudioVisualObject5"]
-stream = ExtResource( 3 )
-
-[node name="SubtitleData" type="Node" parent="AudioVisualObject5/AudioTest3D"]
-script = ExtResource( 1 )
-subtitle_key = "sub_test"
-subtitles_padding = 0.3
-
-[node name="Timer" type="Timer" parent="AudioVisualObject5"]
-autostart = true
-
-[node name="AudioVisualObject6" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.0192, 4.7684, -5.39565 )
-mesh = SubResource( 3 )
-material/0 = ExtResource( 2 )
-script = ExtResource( 5 )
-
-[node name="AudioTest3D" type="AudioStreamPlayer3D" parent="AudioVisualObject6"]
-stream = ExtResource( 3 )
-
-[node name="SubtitleData" type="Node" parent="AudioVisualObject6/AudioTest3D"]
-script = ExtResource( 1 )
-subtitle_key = "sub_test"
-subtitles_padding = 0.3
-
-[node name="Timer" type="Timer" parent="AudioVisualObject6"]
-autostart = true
+[node name="AudioVisualObject3" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.3058, 7.62939e-06, 48.1471 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "demonstration"
 anims/RESET = SubResource( 4 )
 anims/demonstration = SubResource( 5 )
-
-[connection signal="timeout" from="AudioVisualObject/Timer" to="AudioVisualObject" method="_on_Timer_timeout"]
-[connection signal="timeout" from="AudioVisualObject2/Timer" to="AudioVisualObject2" method="_on_Timer_timeout"]
-[connection signal="timeout" from="AudioVisualObject3/Timer" to="AudioVisualObject3" method="_on_Timer_timeout"]
-[connection signal="timeout" from="AudioVisualObject4/Timer" to="AudioVisualObject4" method="_on_Timer_timeout"]
-[connection signal="timeout" from="AudioVisualObject5/Timer" to="AudioVisualObject5" method="_on_Timer_timeout"]
-[connection signal="timeout" from="AudioVisualObject6/Timer" to="AudioVisualObject6" method="_on_Timer_timeout"]

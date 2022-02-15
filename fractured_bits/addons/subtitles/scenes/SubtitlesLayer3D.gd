@@ -78,8 +78,7 @@ func _apply_cam_angles(cam : Camera, pos : Spatial, calc_pos : Vector2, panel : 
 		var min_ang := max_ang * 0.75
 		var diff_ang := clamp(abs_ang, min_ang, max_ang)
 		var ramp := _remap(diff_ang, min_ang, max_ang, 0.0, 1.0)
-		#ramp = pow(ramp, 3)
-		(panel.get_child(0) as Label).text = "sub_" + str(int(rad2deg(diff_ang))) + "->" + str(ramp)
+		ramp = pow(ramp, 3)
 		return calc_pos.linear_interpolate(side_pos, ramp)
 
 	return side_pos.linear_interpolate(behind_pos, clamp(-dot, 0, 1.0))
