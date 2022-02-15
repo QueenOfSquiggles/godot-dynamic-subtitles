@@ -22,12 +22,13 @@ func _tool_gen_subdata_in_scene(args) -> void:
 	var scene := get_tree().edited_scene_root
 	var audio_nodes := _recurse_get_audio_nodes(scene)
 	print("Found %s audio nodes in current scene" % str(audio_nodes.size()))
-	for audio in audio_nodes:
+	for a in audio_nodes:
+		var audio := a as Node
 		print("Processing node [%s]" % str(scene.get_path_to(audio)))
-		var add_data := true
-		for c in audio.get_children():
-			if c is SubtitleData:
-				add_data = false
+		var add_data :bool = audio.get_child_count() <= 0
+#		for c in audio.get_children():
+#			if c is SubtitleData:
+#				add_data = false
 		if add_data:
 			print(">\tdetermined to add sub data")
 			var sub_data := Node.new()
