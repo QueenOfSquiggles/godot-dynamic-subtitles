@@ -38,7 +38,7 @@ Subtitles="*res://addons/subtitles/scenes/Subtitles.gd"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/NbPM/plugin.cfg", "res://addons/subtitles/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/subtitles/plugin.cfg" )
 
 [importer_defaults]
 

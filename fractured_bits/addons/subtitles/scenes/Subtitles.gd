@@ -1,10 +1,6 @@
 extends Node
 """
-Subtitles (SubtitlesLayer.gd)
-
-see 'create_subtitle' for core functionality
-
-This node is a canvas layer autoload so the layer this renders on can be customized. I.e. if you want the subtitles to be behind some kind of detail layer, that's possible. IN general it is recommended to put subtitles as top-layer as possible.
+Autoload for handling subtitles. The logic for positioning and holding the subtitles is handled by seperate layers
 """
 
 

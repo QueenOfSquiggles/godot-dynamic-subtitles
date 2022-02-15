@@ -25,23 +25,20 @@ func _tool_gen_subdata_in_scene(args) -> void:
 	for a in audio_nodes:
 		var audio := a as Node
 		print("Processing node [%s]" % str(scene.get_path_to(audio)))
-		var add_data :bool = audio.get_child_count() <= 0
-#		for c in audio.get_children():
-#			if c is SubtitleData:
-#				add_data = false
+		var add_data :bool = true
+		for c in audio.get_children():
+			if c is SubtitleData:
+				add_data = false
 		if add_data:
-			print(">\tdetermined to add sub data")
-			var sub_data := Node.new()
-			#print(">\tinstanced sub data")
-			#sub_data.subtitle_key = audio.name
-			#print(">\tassigned sub key")
-			#print("[]\taudio=", audio)
-			print("[]\taudio:get_path=", (audio as Node).get_path())
-			#print("[]\tsub_data=", sub_data)
+			print(">\tAdding sub data")
+			var sub_data := SubtitleData.new()
+			sub_data.name = "SubtitleData"
 			audio.add_child(sub_data)
-			print("[]\tsub_data:get_path=", (sub_data as Node).get_path())
+			sub_data.subtitle_key = audio.name
+			sub_data.set_owner(scene)
 		else:
 			print(">\tSubtitle data detected on scene node : %s" %  str(scene.get_path_to(audio)))
+		print(">\t", audio.get_children())
 	#print("reloading")
 	# TODO Do we need to add anything here? Like some kind of "mark_changed" kind of thing?
 
