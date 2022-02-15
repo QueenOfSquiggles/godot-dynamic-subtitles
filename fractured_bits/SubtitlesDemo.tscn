@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://testing/textures/christmas_photo_studio_05_4k.hdr" type="Texture" id=1]
+[ext_resource path="res://testing/FreeLookCam.gd" type="Script" id=2]
+
+[sub_resource type="PanoramaSky" id=1]
+panorama = ExtResource( 1 )
+
+[sub_resource type="Environment" id=2]
+background_mode = 2
+background_sky = SubResource( 1 )
+
+[node name="SubtitlesDemo" type="Spatial"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 2 )
+
+[node name="Camera" type="Camera" parent="."]
+script = ExtResource( 2 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="Spatial" type="Spatial" parent="."]
+
+[node name="Spatial2" type="Spatial" parent="Spatial"]
+
+[node name="Spatial3" type="Spatial" parent="Spatial/Spatial2"]

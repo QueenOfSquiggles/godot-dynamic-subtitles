@@ -9,112 +9,36 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "BTNode",
-"class": "BTCompositor",
-"language": "GDScript",
-"path": "res://addons/behaviour_tree/scripts/node_types/BTCompositor.gd"
-}, {
-"base": "BTNode",
-"class": "BTDecorator",
-"language": "GDScript",
-"path": "res://addons/behaviour_tree/scripts/node_types/BTDecorator.gd"
-}, {
-"base": "BTNode",
-"class": "BTLeaf",
-"language": "GDScript",
-"path": "res://addons/behaviour_tree/scripts/node_types/BTLeaf.gd"
-}, {
 "base": "Node",
-"class": "BTNode",
+"class": "SubtitleData",
 "language": "GDScript",
-"path": "res://addons/behaviour_tree/scripts/node_types/BTNode.gd"
+"path": "res://addons/subtitles/scenes/SubtitleData.gd"
 }, {
-"base": "AudioStreamPlayer",
-"class": "KeyedAudioStreamPlayer",
+"base": "CanvasLayer",
+"class": "SubtitlesLayer3D",
 "language": "GDScript",
-"path": "res://addons/sound_engine/streams/KeyedAudioStreamPlayer.gd"
-}, {
-"base": "AudioStreamPlayer2D",
-"class": "KeyedAudioStreamPlayer2D",
-"language": "GDScript",
-"path": "res://addons/sound_engine/streams/KeyedAudioStreamPlayer2D.gd"
-}, {
-"base": "AudioStreamPlayer3D",
-"class": "KeyedAudioStreamPlayer3D",
-"language": "GDScript",
-"path": "res://addons/sound_engine/streams/KeyedAudioStreamPlayer3D.gd"
-}, {
-"base": "Control",
-"class": "LoadingScreen",
-"language": "GDScript",
-"path": "res://modules/scene_management/LoadingScreen.gd"
-}, {
-"base": "Resource",
-"class": "Quest",
-"language": "GDScript",
-"path": "res://addons/questing/scripts/Quest.gd"
-}, {
-"base": "Node",
-"class": "SoundLib",
-"language": "GDScript",
-"path": "res://addons/sound_engine/sound_lib/SoundLib.gd"
-}, {
-"base": "Node2D",
-"class": "SoundLib2D",
-"language": "GDScript",
-"path": "res://addons/sound_engine/sound_lib/SoundLib2D.gd"
-}, {
-"base": "Spatial",
-"class": "SoundLib3D",
-"language": "GDScript",
-"path": "res://addons/sound_engine/sound_lib/SoundLib3D.gd"
-}, {
-"base": "Resource",
-"class": "SoundWithKey",
-"language": "GDScript",
-"path": "res://addons/sound_engine/resources/SoundWithKey.gd"
-}, {
-"base": "Node",
-"class": "Splash",
-"language": "GDScript",
-"path": "res://modules/godot_splash_screens/splash/Splash.gd"
+"path": "res://addons/subtitles/scenes/SubtitlesLayer3D.gd"
 } ]
 _global_script_class_icons={
-"BTCompositor": "",
-"BTDecorator": "",
-"BTLeaf": "",
-"BTNode": "",
-"KeyedAudioStreamPlayer": "",
-"KeyedAudioStreamPlayer2D": "",
-"KeyedAudioStreamPlayer3D": "",
-"LoadingScreen": "",
-"Quest": "",
-"SoundLib": "",
-"SoundLib2D": "",
-"SoundLib3D": "",
-"SoundWithKey": "",
-"Splash": ""
+"SubtitleData": "",
+"SubtitlesLayer3D": ""
 }
 
 [application]
 
-config/name="fractured_bits"
-run/main_scene="res://testing/MainTestingScene.tscn"
+config/name="godot-dynamic-subtitles"
+run/main_scene="res://SubtitlesDemo.tscn"
 boot_splash/fullsize=false
 boot_splash/use_filter=false
 config/icon="res://icon.png"
 
 [autoload]
 
-Themes="*res://addons/ui_theme_manager/Themes.tscn"
-TimeSlice="*res://addons/time_slice/TimeSlice.gd"
-Subtitles="*res://addons/subtitles/scenes/SubtitlesLayer.gd"
-SoundEngine="*res://addons/sound_engine/autoload/SoundEngine.gd"
-QuestManager="*res://addons/questing/scripts/QuestManager.gd"
+Subtitles="*res://addons/subtitles/scenes/Subtitles.gd"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/NbPM/plugin.cfg", "res://addons/behaviour_tree/plugin.cfg", "res://addons/game_map/plugin.cfg", "res://addons/questing/plugin.cfg", "res://addons/sound_engine/plugin.cfg", "res://addons/subtitles/plugin.cfg", "res://addons/time_slice/plugin.cfg", "res://addons/translation_help/plugin.cfg", "res://addons/ui_theme_manager/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/NbPM/plugin.cfg", "res://addons/subtitles/plugin.cfg" )
 
 [importer_defaults]
 

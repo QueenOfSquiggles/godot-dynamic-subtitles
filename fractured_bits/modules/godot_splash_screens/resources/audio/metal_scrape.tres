@@ -1,6 +1,0 @@
-[gd_resource type="AudioStreamRandomPitch" load_steps=2 format=2]
-
-[ext_resource path="res://modules/godot_splash_screens/resources/audio/182348__claire-h__metal-scrape03_modified.ogg" type="AudioStream" id=1]
-
-[resource]
-audio_stream = ExtResource( 1 )
