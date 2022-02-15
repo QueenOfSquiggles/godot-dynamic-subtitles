@@ -1,0 +1,179 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "BTNode",
+"class": "BTCompositor",
+"language": "GDScript",
+"path": "res://addons/behaviour_tree/scripts/node_types/BTCompositor.gd"
+}, {
+"base": "BTNode",
+"class": "BTDecorator",
+"language": "GDScript",
+"path": "res://addons/behaviour_tree/scripts/node_types/BTDecorator.gd"
+}, {
+"base": "BTNode",
+"class": "BTLeaf",
+"language": "GDScript",
+"path": "res://addons/behaviour_tree/scripts/node_types/BTLeaf.gd"
+}, {
+"base": "Node",
+"class": "BTNode",
+"language": "GDScript",
+"path": "res://addons/behaviour_tree/scripts/node_types/BTNode.gd"
+}, {
+"base": "AudioStreamPlayer",
+"class": "KeyedAudioStreamPlayer",
+"language": "GDScript",
+"path": "res://addons/sound_engine/streams/KeyedAudioStreamPlayer.gd"
+}, {
+"base": "AudioStreamPlayer2D",
+"class": "KeyedAudioStreamPlayer2D",
+"language": "GDScript",
+"path": "res://addons/sound_engine/streams/KeyedAudioStreamPlayer2D.gd"
+}, {
+"base": "AudioStreamPlayer3D",
+"class": "KeyedAudioStreamPlayer3D",
+"language": "GDScript",
+"path": "res://addons/sound_engine/streams/KeyedAudioStreamPlayer3D.gd"
+}, {
+"base": "Control",
+"class": "LoadingScreen",
+"language": "GDScript",
+"path": "res://modules/scene_management/LoadingScreen.gd"
+}, {
+"base": "Resource",
+"class": "Quest",
+"language": "GDScript",
+"path": "res://addons/questing/scripts/Quest.gd"
+}, {
+"base": "Node",
+"class": "SoundLib",
+"language": "GDScript",
+"path": "res://addons/sound_engine/sound_lib/SoundLib.gd"
+}, {
+"base": "Node2D",
+"class": "SoundLib2D",
+"language": "GDScript",
+"path": "res://addons/sound_engine/sound_lib/SoundLib2D.gd"
+}, {
+"base": "Spatial",
+"class": "SoundLib3D",
+"language": "GDScript",
+"path": "res://addons/sound_engine/sound_lib/SoundLib3D.gd"
+}, {
+"base": "Resource",
+"class": "SoundWithKey",
+"language": "GDScript",
+"path": "res://addons/sound_engine/resources/SoundWithKey.gd"
+}, {
+"base": "Node",
+"class": "Splash",
+"language": "GDScript",
+"path": "res://modules/godot_splash_screens/splash/Splash.gd"
+} ]
+_global_script_class_icons={
+"BTCompositor": "",
+"BTDecorator": "",
+"BTLeaf": "",
+"BTNode": "",
+"KeyedAudioStreamPlayer": "",
+"KeyedAudioStreamPlayer2D": "",
+"KeyedAudioStreamPlayer3D": "",
+"LoadingScreen": "",
+"Quest": "",
+"SoundLib": "",
+"SoundLib2D": "",
+"SoundLib3D": "",
+"SoundWithKey": "",
+"Splash": ""
+}
+
+[application]
+
+config/name="fractured_bits"
+run/main_scene="res://testing/MainTestingScene.tscn"
+boot_splash/fullsize=false
+boot_splash/use_filter=false
+config/icon="res://icon.png"
+
+[autoload]
+
+Themes="*res://addons/ui_theme_manager/Themes.tscn"
+TimeSlice="*res://addons/time_slice/TimeSlice.gd"
+Subtitles="*res://addons/subtitles/scenes/SubtitlesLayer.gd"
+SoundEngine="*res://addons/sound_engine/autoload/SoundEngine.gd"
+QuestManager="*res://addons/questing/scripts/QuestManager.gd"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/NbPM/plugin.cfg", "res://addons/behaviour_tree/plugin.cfg", "res://addons/game_map/plugin.cfg", "res://addons/questing/plugin.cfg", "res://addons/sound_engine/plugin.cfg", "res://addons/subtitles/plugin.cfg", "res://addons/time_slice/plugin.cfg", "res://addons/translation_help/plugin.cfg", "res://addons/ui_theme_manager/plugin.cfg" )
+
+[importer_defaults]
+
+ogg_vorbis={
+"loop": false,
+"loop_offset": 0
+}
+
+[input]
+
+W={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+E={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":69,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+move_forwards={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+move_left={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+move_right={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+move_backwards={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+sprint={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777237,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+jump={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+
+[locale]
+
+translations=PoolStringArray( "res://testing/localization/translation_exported_file.en.translation", "res://testing/localization/translation_exported_file.es.translation", "res://testing/localization/translation_exported_file.ja.translation" )
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"

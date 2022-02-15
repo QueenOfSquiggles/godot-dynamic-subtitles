@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/impactMetal_heavy_000.ogg-275cd01ae2685945540977f701a725c1.oggstr"
+
+[deps]
+
+source_file="res://modules/godot_splash_screens/resources/audio/kenney_impact_pack/Audio/impactMetal_heavy_000.ogg"
+dest_files=[ "res://.import/impactMetal_heavy_000.ogg-275cd01ae2685945540977f701a725c1.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

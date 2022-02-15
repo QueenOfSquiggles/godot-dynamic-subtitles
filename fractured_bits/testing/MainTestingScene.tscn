@@ -1,0 +1,87 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://testing/MainTestingScene.gd" type="Script" id=1]
+[ext_resource path="res://addons/sound_engine/sound_lib/SoundLib3D.gd" type="Script" id=2]
+[ext_resource path="res://testing/resources/CharSoundTest.tres" type="Resource" id=3]
+[ext_resource path="res://addons/sound_engine/streams/KeyedAudioStreamPlayer3D.gd" type="Script" id=4]
+[ext_resource path="res://testing/resources/impactMetal_000.ogg" type="AudioStream" id=5]
+[ext_resource path="res://testing/FreeLookCam.gd" type="Script" id=6]
+[ext_resource path="res://testing/SoundSourceTest.gd" type="Script" id=7]
+[ext_resource path="res://testing/resources/PositionalSoundTest.tres" type="Resource" id=8]
+[ext_resource path="res://testing/textures/christmas_photo_studio_05_4k.hdr" type="Texture" id=9]
+
+[sub_resource type="CubeMesh" id=1]
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_color = Color( 0.415686, 0.188235, 0.784314, 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="Theme" id=6]
+PanelContainer/styles/panel = SubResource( 5 )
+
+[sub_resource type="PanoramaSky" id=2]
+panorama = ExtResource( 9 )
+
+[sub_resource type="Environment" id=3]
+background_mode = 2
+background_sky = SubResource( 2 )
+
+[node name="MainTestingScene" type="Spatial"]
+script = ExtResource( 1 )
+test_sample_with_key = ExtResource( 8 )
+
+[node name="Spatial" type="Spatial" parent="."]
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.93932, -2.01811, 0 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 4 )
+script = ExtResource( 7 )
+
+[node name="SoundLib3D" type="Spatial" parent="Spatial/MeshInstance"]
+script = ExtResource( 2 )
+
+[node name="audio" type="AudioStreamPlayer3D" parent="Spatial/MeshInstance/SoundLib3D"]
+stream = ExtResource( 5 )
+script = ExtResource( 4 )
+keyed_sound_resource = ExtResource( 8 )
+subtitle_theme = SubResource( 6 )
+
+[node name="char_audio" type="AudioStreamPlayer3D" parent="Spatial/MeshInstance/SoundLib3D"]
+stream = ExtResource( 5 )
+script = ExtResource( 4 )
+keyed_sound_resource = ExtResource( 3 )
+handle_position = false
+time_padding = 1.5
+
+[node name="FreeLookCam" type="Camera" parent="Spatial"]
+transform = Transform( 1, 0, 0, 0, 0.936274, 0.35127, 0, -0.35127, 0.936274, 0, 4.3562, 9.73549 )
+current = true
+script = ExtResource( 6 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 3 )
+
+[node name="Control" type="VBoxContainer" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -69.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+margin_top = 286.0
+margin_right = 69.0
+margin_bottom = 314.0
+
+[node name="Label" type="Label" parent="Control/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 62.0
+margin_bottom = 21.0
+text = "cool shit"

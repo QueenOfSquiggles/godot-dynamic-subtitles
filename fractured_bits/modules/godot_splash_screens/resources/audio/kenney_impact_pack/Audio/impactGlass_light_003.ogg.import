@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/impactGlass_light_003.ogg-5e98887e8886d35bd08d5a212858a08f.oggstr"
+
+[deps]
+
+source_file="res://modules/godot_splash_screens/resources/audio/kenney_impact_pack/Audio/impactGlass_light_003.ogg"
+dest_files=[ "res://.import/impactGlass_light_003.ogg-5e98887e8886d35bd08d5a212858a08f.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

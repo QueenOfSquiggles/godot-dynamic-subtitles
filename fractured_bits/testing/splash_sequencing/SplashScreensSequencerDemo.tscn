@@ -1,0 +1,9 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://modules/godot_splash_screens/splash_sequencer/SplashScreensSequencer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://modules/godot_splash_screens/splash/Splash_ConstructionDark.tscn" type="PackedScene" id=2]
+[ext_resource path="res://modules/godot_splash_screens/splash/Godot_Splash_Dark_Horror_Variant.tscn" type="PackedScene" id=3]
+
+[node name="SplashScreensSequencerDemo" instance=ExtResource( 1 )]
+sequence = [ ExtResource( 3 ), ExtResource( 2 ) ]
+main_scene = "res://testing/subtitles_demo/SubtitlesDemoScene.tscn"

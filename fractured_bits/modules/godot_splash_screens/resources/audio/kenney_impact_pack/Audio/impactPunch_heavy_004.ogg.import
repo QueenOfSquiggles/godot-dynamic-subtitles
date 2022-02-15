@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/impactPunch_heavy_004.ogg-81db33e5d078c81b1608a4a3a89b96b4.oggstr"
+
+[deps]
+
+source_file="res://modules/godot_splash_screens/resources/audio/kenney_impact_pack/Audio/impactPunch_heavy_004.ogg"
+dest_files=[ "res://.import/impactPunch_heavy_004.ogg-81db33e5d078c81b1608a4a3a89b96b4.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

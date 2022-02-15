@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/impactPlank_medium_000.ogg-abdbec703af442cd2a28ec8c1803aa2d.oggstr"
+
+[deps]
+
+source_file="res://modules/godot_splash_screens/resources/audio/kenney_impact_pack/Audio/impactPlank_medium_000.ogg"
+dest_files=[ "res://.import/impactPlank_medium_000.ogg-abdbec703af442cd2a28ec8c1803aa2d.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

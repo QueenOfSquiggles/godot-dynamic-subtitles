@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/impactMining_002.ogg-232693a5b915a414a0ebd99a96595b60.oggstr"
+
+[deps]
+
+source_file="res://modules/godot_splash_screens/resources/audio/kenney_impact_pack/Audio/impactMining_002.ogg"
+dest_files=[ "res://.import/impactMining_002.ogg-232693a5b915a414a0ebd99a96595b60.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

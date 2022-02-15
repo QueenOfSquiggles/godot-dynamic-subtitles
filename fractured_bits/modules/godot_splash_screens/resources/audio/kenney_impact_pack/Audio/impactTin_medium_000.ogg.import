@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/impactTin_medium_000.ogg-aa5b9a17298ddabe1fc5567937ade36f.oggstr"
+
+[deps]
+
+source_file="res://modules/godot_splash_screens/resources/audio/kenney_impact_pack/Audio/impactTin_medium_000.ogg"
+dest_files=[ "res://.import/impactTin_medium_000.ogg-aa5b9a17298ddabe1fc5567937ade36f.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

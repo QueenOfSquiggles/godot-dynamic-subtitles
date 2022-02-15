@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/182348__claire-h__metal-scrape03_modified.ogg-ab25fea4b607465efe7fd3fdfd8be2a3.oggstr"
+
+[deps]
+
+source_file="res://modules/godot_splash_screens/resources/audio/182348__claire-h__metal-scrape03_modified.ogg"
+dest_files=[ "res://.import/182348__claire-h__metal-scrape03_modified.ogg-ab25fea4b607465efe7fd3fdfd8be2a3.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

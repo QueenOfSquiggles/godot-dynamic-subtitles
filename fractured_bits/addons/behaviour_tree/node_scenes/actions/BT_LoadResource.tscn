@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://addons/behaviour_tree/node_scenes/BT_LeafBase.tscn" type="PackedScene" id=1]
+[ext_resource path="res://addons/behaviour_tree/node_scenes/actions/BT_LoadResource.gd" type="Script" id=2]
+
+[node name="BT_LoadResource" instance=ExtResource( 1 )]
+script = ExtResource( 2 )

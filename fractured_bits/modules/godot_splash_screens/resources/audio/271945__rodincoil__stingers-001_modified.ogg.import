@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/271945__rodincoil__stingers-001_modified.ogg-fc806099ad778e4312c3310a82b9879d.oggstr"
+
+[deps]
+
+source_file="res://modules/godot_splash_screens/resources/audio/271945__rodincoil__stingers-001_modified.ogg"
+dest_files=[ "res://.import/271945__rodincoil__stingers-001_modified.ogg-fc806099ad778e4312c3310a82b9879d.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

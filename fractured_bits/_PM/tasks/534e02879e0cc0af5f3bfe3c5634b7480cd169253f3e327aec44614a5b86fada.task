@@ -1,0 +1,11 @@
+{
+	"title": "Fix Camera:unproject",
+	"category": 2,
+	"assigned": 0,
+	"timestamp": 1644523896,
+	"hash": "534e02879e0cc0af5f3bfe3c5634b7480cd169253f3e327aec44614a5b86fada",
+	"description": "Fix the unproject of the camera to be more correct. Ther's some edge cases that could be fixed by doing a simple dot-product check",
+	"todos": [
+
+	]
+}

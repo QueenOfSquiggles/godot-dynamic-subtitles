@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/1.ogg-7e1fc7792c27383a196154c0a4e138f5.oggstr"
+
+[deps]
+
+source_file="res://testing/subtitles_demo/resources/audio/source_files/Female/1.ogg"
+dest_files=[ "res://.import/1.ogg-7e1fc7792c27383a196154c0a4e138f5.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

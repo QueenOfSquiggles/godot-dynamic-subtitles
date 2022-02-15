@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://modules/kenney_fonts/utility/DynamicFontLabel.gd" type="Script" id=1]
+[ext_resource path="res://modules/kenney_fonts/dynamic_fonts/Kenney_Future_Narrow.tres" type="DynamicFont" id=2]
+
+[node name="DynamicFontLabel" type="Label"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = ExtResource( 2 )
+text = "This is some text"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+font_size = 1

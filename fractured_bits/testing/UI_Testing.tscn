@@ -1,0 +1,288 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://modules/kenney_fonts/dynamic_fonts/Kenney_Blocks.tres" type="DynamicFont" id=1]
+[ext_resource path="res://modules/kenney_fonts/dynamic_fonts/Kenney_Future.tres" type="DynamicFont" id=2]
+[ext_resource path="res://modules/kenney_fonts/dynamic_fonts/Kenney_Future_Narrow.tres" type="DynamicFont" id=3]
+[ext_resource path="res://modules/kenney_fonts/dynamic_fonts/Kenney_High.tres" type="DynamicFont" id=4]
+[ext_resource path="res://modules/kenney_fonts/dynamic_fonts/Kenney_High_Square.tres" type="DynamicFont" id=5]
+[ext_resource path="res://modules/kenney_fonts/dynamic_fonts/Kenney_Mini.tres" type="DynamicFont" id=6]
+[ext_resource path="res://modules/kenney_fonts/dynamic_fonts/Kenney_Mini_Square.tres" type="DynamicFont" id=7]
+[ext_resource path="res://modules/kenney_fonts/dynamic_fonts/Kenney_Pixel.tres" type="DynamicFont" id=8]
+[ext_resource path="res://modules/kenney_fonts/dynamic_fonts/Kenney_Pixel_Square.tres" type="DynamicFont" id=9]
+[ext_resource path="res://modules/kenney_fonts/dynamic_fonts/Kenney_Rocket.tres" type="DynamicFont" id=10]
+[ext_resource path="res://modules/kenney_fonts/dynamic_fonts/Kenney_Rocket_Sqaure.tres" type="DynamicFont" id=11]
+
+[sub_resource type="Theme" id=1]
+
+[node name="UI_Testing" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 1 )
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 1004.0
+margin_bottom = 580.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 984.0
+margin_bottom = 47.0
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+margin_top = 16.0
+margin_right = 42.0
+margin_bottom = 30.0
+text = "Blocks"
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer"]
+margin_left = 46.0
+margin_right = 984.0
+margin_bottom = 47.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 1 )
+text = "Sphinx of black quartz, judge my vow"
+align = 1
+valign = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 51.0
+margin_right = 984.0
+margin_bottom = 98.0
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2"]
+margin_top = 16.0
+margin_right = 41.0
+margin_bottom = 30.0
+text = "Future"
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer2"]
+margin_left = 45.0
+margin_right = 984.0
+margin_bottom = 47.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 2 )
+text = "Sphinx of black quartz, judge my vow"
+align = 1
+valign = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 102.0
+margin_right = 984.0
+margin_bottom = 149.0
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer3"]
+margin_top = 16.0
+margin_right = 90.0
+margin_bottom = 30.0
+text = "Future Narrow"
+
+[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer3"]
+margin_left = 94.0
+margin_right = 984.0
+margin_bottom = 47.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 3 )
+text = "Sphinx of black quartz, judge my vow"
+align = 1
+valign = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 153.0
+margin_right = 984.0
+margin_bottom = 201.0
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer4"]
+margin_top = 17.0
+margin_right = 29.0
+margin_bottom = 31.0
+text = "High"
+
+[node name="Label4" type="Label" parent="VBoxContainer/HBoxContainer4"]
+margin_left = 33.0
+margin_right = 984.0
+margin_bottom = 48.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 4 )
+text = "Sphinx of black quartz, judge my vow"
+align = 1
+valign = 1
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 205.0
+margin_right = 984.0
+margin_bottom = 252.0
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer5"]
+margin_top = 16.0
+margin_right = 76.0
+margin_bottom = 30.0
+text = "High Square"
+
+[node name="Label5" type="Label" parent="VBoxContainer/HBoxContainer5"]
+margin_left = 80.0
+margin_right = 984.0
+margin_bottom = 47.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 5 )
+text = "Sphinx of black quartz, judge my vow"
+align = 1
+valign = 1
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 256.0
+margin_right = 984.0
+margin_bottom = 303.0
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer6"]
+margin_top = 16.0
+margin_right = 28.0
+margin_bottom = 30.0
+text = "Mini"
+
+[node name="Label6" type="Label" parent="VBoxContainer/HBoxContainer6"]
+margin_left = 32.0
+margin_right = 984.0
+margin_bottom = 47.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 6 )
+text = "Sphinx of black quartz, judge my vow"
+align = 1
+valign = 1
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 307.0
+margin_right = 984.0
+margin_bottom = 354.0
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer7"]
+margin_top = 16.0
+margin_right = 75.0
+margin_bottom = 30.0
+text = "Mini Square"
+
+[node name="Label7" type="Label" parent="VBoxContainer/HBoxContainer7"]
+margin_left = 79.0
+margin_right = 984.0
+margin_bottom = 47.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 7 )
+text = "Sphinx of black quartz, judge my vow"
+align = 1
+valign = 1
+
+[node name="HBoxContainer8" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 358.0
+margin_right = 984.0
+margin_bottom = 406.0
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer8"]
+margin_top = 17.0
+margin_right = 31.0
+margin_bottom = 31.0
+text = "Pixel"
+
+[node name="Label8" type="Label" parent="VBoxContainer/HBoxContainer8"]
+margin_left = 35.0
+margin_right = 984.0
+margin_bottom = 48.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 8 )
+text = "Sphinx of black quartz, judge my vow"
+align = 1
+valign = 1
+
+[node name="HBoxContainer9" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 410.0
+margin_right = 984.0
+margin_bottom = 457.0
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer9"]
+margin_top = 16.0
+margin_right = 78.0
+margin_bottom = 30.0
+text = "Pixel Square"
+
+[node name="Label9" type="Label" parent="VBoxContainer/HBoxContainer9"]
+margin_left = 82.0
+margin_right = 984.0
+margin_bottom = 47.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 9 )
+text = "Sphinx of black quartz, judge my vow"
+align = 1
+valign = 1
+
+[node name="HBoxContainer10" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 461.0
+margin_right = 984.0
+margin_bottom = 508.0
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer10"]
+margin_top = 16.0
+margin_right = 43.0
+margin_bottom = 30.0
+text = "Rocket"
+
+[node name="Label10" type="Label" parent="VBoxContainer/HBoxContainer10"]
+margin_left = 47.0
+margin_right = 984.0
+margin_bottom = 47.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 10 )
+text = "Sphinx of black quartz, judge my vow"
+align = 1
+valign = 1
+
+[node name="HBoxContainer11" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 512.0
+margin_right = 984.0
+margin_bottom = 560.0
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer11"]
+margin_top = 17.0
+margin_right = 90.0
+margin_bottom = 31.0
+text = "Rocket Square"
+
+[node name="Label11" type="Label" parent="VBoxContainer/HBoxContainer11"]
+margin_left = 94.0
+margin_right = 984.0
+margin_bottom = 48.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 11 )
+text = "Sphinx of black quartz, judge my vow"
+align = 1
+valign = 1

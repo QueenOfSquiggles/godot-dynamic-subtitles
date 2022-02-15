@@ -1,0 +1,6 @@
+[gd_resource type="AudioStreamRandomPitch" load_steps=2 format=2]
+
+[ext_resource path="res://modules/godot_splash_screens/resources/audio/impactTin_medium_004.ogg" type="AudioStream" id=1]
+
+[resource]
+audio_stream = ExtResource( 1 )

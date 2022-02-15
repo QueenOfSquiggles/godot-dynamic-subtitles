@@ -1,0 +1,11 @@
+{
+	"title": "Modularity",
+	"category": 1,
+	"assigned": 0,
+	"timestamp": 1644073346,
+	"hash": "e64b0cfb04a7170152d660bca206bcee54176ea23b4833612715cf761f2159ae",
+	"description": "Convert the subtitle system to check for a node child which stores the key data for the subtitled audio. This would allow for users to add that node as a child to any existing AudioStreamPlayer node including nodes with customized behaviour",
+	"todos": [
+
+	]
+}

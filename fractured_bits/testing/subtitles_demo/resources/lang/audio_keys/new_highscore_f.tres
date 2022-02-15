@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://addons/sound_engine/resources/SoundWithKey.gd" type="Script" id=1]
+[ext_resource path="res://testing/subtitles_demo/resources/audio/source_files/Female/new_highscore.ogg" type="AudioStream" id=2]
+
+[resource]
+script = ExtResource( 1 )
+sound_key = "Sk8er:new highscore!"
+stream = ExtResource( 2 )

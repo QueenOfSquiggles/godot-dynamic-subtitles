@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/new_highscore.ogg-c16c00803cedcb7b97c6dff5b6bc1004.oggstr"
+
+[deps]
+
+source_file="res://testing/subtitles_demo/resources/audio/source_files/Female/new_highscore.ogg"
+dest_files=[ "res://.import/new_highscore.ogg-c16c00803cedcb7b97c6dff5b6bc1004.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

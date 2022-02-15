@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://addons/behaviour_tree/node_scenes/queries/BTQ_HasProperty.gd" type="Script" id=1]
+
+[node name="BTQ_HasProperty" type="Node"]
+script = ExtResource( 1 )

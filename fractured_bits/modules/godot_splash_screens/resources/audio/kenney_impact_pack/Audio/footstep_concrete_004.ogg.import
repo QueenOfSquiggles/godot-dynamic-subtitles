@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/footstep_concrete_004.ogg-7bfd6f7587ed8a85bf29d90dd8a71467.oggstr"
+
+[deps]
+
+source_file="res://modules/godot_splash_screens/resources/audio/kenney_impact_pack/Audio/footstep_concrete_004.ogg"
+dest_files=[ "res://.import/footstep_concrete_004.ogg-7bfd6f7587ed8a85bf29d90dd8a71467.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

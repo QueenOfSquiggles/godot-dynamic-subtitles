@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/impactMetal_medium_003.ogg-2c242feb7dd8b40607727b05c0d3d354.oggstr"
+
+[deps]
+
+source_file="res://modules/godot_splash_screens/resources/audio/kenney_impact_pack/Audio/impactMetal_medium_003.ogg"
+dest_files=[ "res://.import/impactMetal_medium_003.ogg-2c242feb7dd8b40607727b05c0d3d354.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
