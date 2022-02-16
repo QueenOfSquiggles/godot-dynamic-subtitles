@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://testing/resources/object_mat.tres" type="Material" id=1]
 [ext_resource path="res://testing/scripts/AudioVisualObject.gd" type="Script" id=2]
 [ext_resource path="res://testing/resources/impactMetal_000.ogg" type="AudioStream" id=3]
-[ext_resource path="res://addons/subtitles/scenes/SubtitleData.gd" type="Script" id=5]
 
 [sub_resource type="PlaneMesh" id=1]
 
@@ -85,11 +84,6 @@ audio_player = NodePath("impact_metal")
 
 [node name="impact_metal" type="AudioStreamPlayer3D" parent="Camera/arm/TestObj"]
 stream = ExtResource( 3 )
-
-[node name="SubtitleData" type="Node" parent="Camera/arm/TestObj/impact_metal"]
-script = ExtResource( 5 )
-subtitle_key = "impact_metal"
-subtitle_position_override = NodePath("../../../../../PositionOverrideTest")
 
 [node name="Timer" type="Timer" parent="Camera/arm/TestObj"]
 autostart = true
