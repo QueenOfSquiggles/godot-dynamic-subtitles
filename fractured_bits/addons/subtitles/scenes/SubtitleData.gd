@@ -15,7 +15,7 @@ export (float) var subtitles_padding := 0.0
 # a path to a node which will override the position calculations for the subtitle. 
 # This can be any node, but only Node2D and Spatial derived nodes will affect the positioning
 # if this is null, the parent node is used
-export (NodePath) var subtitle_position_override : NodePath
+export var subtitle_position_override : NodePath
 
 # A theme to override the generated subtitle. If this is null, it will use the default theme determined by the addon. This can be null
 export (Theme) var subtitle_theme_override : Theme = null
@@ -26,17 +26,10 @@ signal on_play
 # cached value of parent:playing
 var _last_check := false
 
-# gets the node from the path export. Can be null, the subtitle system handles null as not using an override and defaults to the parent of this node (An audio stream player)
-var pos_override :Node = null
-
 # the parent node
 # This node MUST be parented to an AudioStreamPlayer, AudioStreamPlayer2D, or AudioStreamPlayer3D, or a derived stream player. Otherwise the system will fail to recognize it.
 onready var parent :Node = get_parent()
 
-
-func _ready() -> void:
-	if subtitle_position_override:
-		pos_override = get_node(subtitle_position_override)
 
 func _process(delta: float) -> void:
 	var cur :bool = parent.playing # this will throw an error if the parent isn't an AudioStreamPlayer node. Check the node parent if you got here from the debugger!
