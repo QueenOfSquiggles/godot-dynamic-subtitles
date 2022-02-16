@@ -3,6 +3,7 @@
 [ext_resource path="res://testing/scenes/AudioVisualObject.tscn" type="PackedScene" id=1]
 
 [node name="AudioVisualObject" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 audio_player = NodePath("AudioTest3D")
 
 [node name="SubtitleData" parent="AudioTest3D" index="0"]
