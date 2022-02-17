@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://testing/resources/object_mat.tres" type="Material" id=1]
 [ext_resource path="res://testing/scripts/AudioVisualObject.gd" type="Script" id=2]
 [ext_resource path="res://testing/resources/impactMetal_000.ogg" type="AudioStream" id=3]
+[ext_resource path="res://addons/subtitles/scenes/SubtitleData.gd" type="Script" id=5]
 
 [sub_resource type="PlaneMesh" id=1]
 
@@ -58,6 +59,14 @@ mesh = SubResource( 1 )
 skeleton = NodePath("../..")
 material/0 = SubResource( 5 )
 
+[node name="impact_metal4" type="AudioStreamPlayer3D" parent="extras/ground_plane"]
+transform = Transform( 0.0694355, 0, 0.0549978, 0, 1, 0, -0.0549978, 0, 0.0694355, -0.274989, 1.9865, 0.198567 )
+stream = ExtResource( 3 )
+
+[node name="SubtitleData" type="Node" parent="extras/ground_plane/impact_metal4"]
+script = ExtResource( 5 )
+subtitle_key = "impact_metal4"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="extras"]
 root_node = NodePath("../..")
 autoplay = "simple_orbit"
@@ -67,6 +76,14 @@ anims/simple_orbit = SubResource( 2 )
 [node name="DirectionalLight" type="DirectionalLight" parent="extras"]
 transform = Transform( 0.393525, -0.597559, 0.698614, 0, 0.75993, 0.650005, -0.919314, -0.255793, 0.299051, 0, 0, 0 )
 shadow_enabled = true
+
+[node name="impact_metal6" type="AudioStreamPlayer3D" parent="extras"]
+transform = Transform( 0.783892, 0, 0.620897, 0, 1, 0, -0.620897, 0, 0.783892, -3.10449, 1.9865, 2.24172 )
+stream = ExtResource( 3 )
+
+[node name="SubtitleData" type="Node" parent="extras/impact_metal6"]
+script = ExtResource( 5 )
+subtitle_key = "impact_metal6"
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9865, 6.16118 )
@@ -80,17 +97,45 @@ mesh = SubResource( 3 )
 skeleton = NodePath("../../..")
 material/0 = ExtResource( 1 )
 script = ExtResource( 2 )
-audio_player = NodePath("impact_metal")
+audio_player = NodePath("impact_metal3")
 
-[node name="impact_metal" type="AudioStreamPlayer3D" parent="Camera/arm/TestObj"]
+[node name="impact_metal3" type="AudioStreamPlayer3D" parent="Camera/arm/TestObj"]
 stream = ExtResource( 3 )
+
+[node name="SubtitleData" type="Node" parent="Camera/arm/TestObj/impact_metal3"]
+script = ExtResource( 5 )
+subtitle_key = "impact_metal3"
 
 [node name="Timer" type="Timer" parent="Camera/arm/TestObj"]
 autostart = true
+
+[node name="impact_metal2" type="AudioStreamPlayer3D" parent="Camera"]
+transform = Transform( 0.783892, 0, 0.620897, 0, 1, 0, -0.620897, 0, 0.783892, -3.10449, 0, -3.91946 )
+stream = ExtResource( 3 )
+
+[node name="SubtitleData" type="Node" parent="Camera/impact_metal2"]
+script = ExtResource( 5 )
+subtitle_key = "impact_metal2"
 
 [node name="PositionOverrideTest" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.87475, 0.8855, -6.48584 )
 mesh = SubResource( 6 )
 material/0 = null
+
+[node name="impact_metal5" type="AudioStreamPlayer3D" parent="PositionOverrideTest"]
+transform = Transform( 0.783892, 0, 0.620897, 0, 1, 0, -0.620897, 0, 0.783892, 0.770264, 1.101, 8.72756 )
+stream = ExtResource( 3 )
+
+[node name="SubtitleData" type="Node" parent="PositionOverrideTest/impact_metal5"]
+script = ExtResource( 5 )
+subtitle_key = "impact_metal5"
+
+[node name="impact_metal" type="AudioStreamPlayer3D" parent="."]
+transform = Transform( 0.783892, 0, 0.620897, 0, 1, 0, -0.620897, 0, 0.783892, -3.10449, 1.9865, 2.24172 )
+stream = ExtResource( 3 )
+
+[node name="SubtitleData" type="Node" parent="impact_metal"]
+script = ExtResource( 5 )
+subtitle_key = "impact_metal"
 
 [connection signal="timeout" from="Camera/arm/TestObj/Timer" to="Camera/arm/TestObj" method="_on_Timer_timeout"]
