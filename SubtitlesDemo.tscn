@@ -263,11 +263,13 @@ environment = SubResource( 2 )
 [node name="AudioVisualObject" parent="." instance=ExtResource( 6 )]
 
 [node name="AudioVisualObject2" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.6597, 0, 8.34279 )
 
 [node name="AudioVisualObject3" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 58.0186, 0, 6.49029 )
 
 [node name="AudioVisualObject4" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.72074 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.8457, 15.1491, -16.8741 )
 mesh = SubResource( 3 )
 material/0 = ExtResource( 5 )
 script = ExtResource( 3 )
