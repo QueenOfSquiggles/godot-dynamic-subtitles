@@ -27,7 +27,7 @@ _global_script_class_icons={
 [application]
 
 config/name="godot-dynamic-subtitles"
-run/main_scene="res://SubtitlesDemo.tscn"
+run/main_scene="res://video_demo/live_demo/Live_Demo.tscn"
 boot_splash/fullsize=false
 boot_splash/use_filter=false
 config/icon="res://icon.png"
@@ -93,6 +93,7 @@ jump={
 [locale]
 
 translations=PoolStringArray( "res://testing/localization/translation_exported_file.en.translation", "res://testing/localization/translation_exported_file.es.translation", "res://testing/localization/translation_exported_file.ja.translation" )
+locale_filter=[ 1, [ "en_US" ] ]
 
 [physics]
 

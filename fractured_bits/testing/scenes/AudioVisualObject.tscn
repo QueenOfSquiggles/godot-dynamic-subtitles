@@ -20,7 +20,7 @@ stream = ExtResource( 4 )
 
 [node name="SubtitleData" type="Node" parent="AudioTest3D"]
 script = ExtResource( 1 )
-subtitle_key = "subtitle!"
+subtitle_key = "impact_metal"
 subtitles_padding = 60.0
 
 [node name="Timer" type="Timer" parent="."]

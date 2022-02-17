@@ -116,10 +116,11 @@ func add_subtitle(stream_node : AudioStreamPlayer3D, sub_data : SubtitleData, th
 
 
 func _get_position(stream_node : AudioStreamPlayer3D, sub_data : SubtitleData) -> Spatial:
-	if sub_data.pos_override != null and sub_data.pos_override is Spatial:
+	var override_path := sub_data.subtitle_position_override
+	if not override_path.is_empty():
 		# check that the position override is set and is a spatial node
 		# since this could be any spatial node, it could even be tied to an animated element of a character, like the muzzle of a gun or the throat of a creature.
-		return sub_data.pos_override as Spatial
+		return sub_data.get_node(override_path) as Spatial
 	# revert to the actual audio stream player position, which can be set fairly easily in editor
 	return stream_node as Spatial
 
