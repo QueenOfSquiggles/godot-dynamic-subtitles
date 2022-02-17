@@ -12,6 +12,10 @@ export (String) var subtitle_key := ""
 # setting this to be negative will shorten the subtitle. Which can cause problems in some cases
 export (float) var subtitles_padding := 0.0
 
+# determines whether to push this subtitle to the dialogue layer or to a spatialized layer. 
+# character dialogues are handled in a way that assumes it is crucial the player is able to read them all. They are not required to have any specific character information in the subtitle_key
+export (bool) var is_character_dialogue := false
+
 # a path to a node which will override the position calculations for the subtitle. 
 # This can be any node, but only Node2D and Spatial derived nodes will affect the positioning
 # if this is null, the parent node is used
@@ -48,4 +52,4 @@ func _process(delta: float) -> void:
 
 func trigger_audio_play() -> void:
 	emit_signal("on_play") # this addon does not make use of this signal, but it is there should a need exist
-	Subtitles.add_subtitle(self, parent, subtitle_theme_override)
+	Subtitles.add_subtitle(self, parent)

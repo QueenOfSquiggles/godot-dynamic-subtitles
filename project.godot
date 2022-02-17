@@ -15,13 +15,25 @@ _global_script_classes=[ {
 "path": "res://addons/subtitles/scenes/SubtitleData.gd"
 }, {
 "base": "CanvasLayer",
+"class": "SubtitlesLayer2D",
+"language": "GDScript",
+"path": "res://addons/subtitles/scenes/SubtitlesLayer2D.gd"
+}, {
+"base": "CanvasLayer",
 "class": "SubtitlesLayer3D",
 "language": "GDScript",
 "path": "res://addons/subtitles/scenes/SubtitlesLayer3D.gd"
+}, {
+"base": "CanvasLayer",
+"class": "SubtitlesLayerDialogue",
+"language": "GDScript",
+"path": "res://addons/subtitles/scenes/SubtitlesLayerDialogue.gd"
 } ]
 _global_script_class_icons={
 "SubtitleData": "",
-"SubtitlesLayer3D": ""
+"SubtitlesLayer2D": "",
+"SubtitlesLayer3D": "",
+"SubtitlesLayerDialogue": ""
 }
 
 [application]

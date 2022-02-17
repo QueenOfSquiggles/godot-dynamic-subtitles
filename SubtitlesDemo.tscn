@@ -1,7 +1,12 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=16 format=2]
 
+[ext_resource path="res://addons/subtitles/scenes/SubtitleData.gd" type="Script" id=1]
+[ext_resource path="res://addons/subtitles/scripts/ASP_3D_Events.gd" type="Script" id=2]
+[ext_resource path="res://testing/scripts/AudioVisualObject.gd" type="Script" id=3]
 [ext_resource path="res://testing/textures/christmas_photo_studio_05_4k.hdr" type="Texture" id=4]
+[ext_resource path="res://testing/resources/object_mat.tres" type="Material" id=5]
 [ext_resource path="res://testing/scenes/AudioVisualObject.tscn" type="PackedScene" id=6]
+[ext_resource path="res://testing/resources/impactMetal_000.ogg" type="AudioStream" id=7]
 
 [sub_resource type="ProceduralSky" id=6]
 ground_bottom_color = Color( 0.568627, 0.745098, 0.92549, 1 )
@@ -18,6 +23,10 @@ panorama = ExtResource( 4 )
 [sub_resource type="Environment" id=2]
 background_mode = 2
 background_sky = SubResource( 1 )
+
+[sub_resource type="SphereMesh" id=3]
+radius = 0.5
+height = 1.0
 
 [sub_resource type="Animation" id=4]
 length = 0.001
@@ -254,157 +263,34 @@ environment = SubResource( 2 )
 [node name="AudioVisualObject" parent="." instance=ExtResource( 6 )]
 
 [node name="AudioVisualObject2" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36.9395, 0, -5.7823 )
 
 [node name="AudioVisualObject3" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.3058, 7.62939e-06, 48.1471 )
 
-[node name="AudioVisualObject4" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -108.53, 7.62939e-06, 55.9546 )
+[node name="AudioVisualObject4" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.72074 )
+mesh = SubResource( 3 )
+material/0 = ExtResource( 5 )
+script = ExtResource( 3 )
+audio_player = NodePath("AudioTest3D")
 
-[node name="AudioVisualObject5" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -147.978, 7.62939e-06, -37.3242 )
+[node name="AudioTest3D" type="AudioStreamPlayer3D" parent="AudioVisualObject4"]
+stream = ExtResource( 7 )
+script = ExtResource( 2 )
 
-[node name="AudioVisualObject6" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -150.855, 7.62939e-06, -124.028 )
+[node name="SubtitleData" type="Node" parent="AudioVisualObject4/AudioTest3D"]
+script = ExtResource( 1 )
+subtitle_key = "JOHNNY:this is a super really long amazing windergonasdlkasjdgflask.gadfgbjnladfkgj,hasbdfj;ds.akdgbjasmngaklfgbnafkjds.bfajsgfhklafgxcvnm, xzclv.asfdkgjandfa.sdkfj,zb dfgldafkgbadsfbav,fgjashnfalkjvblaskgjhfdsangvlkjnsd vbklsfdjghas;fgjnaglkjafghdsjkfsdlkfnalkjsgahsdlfkndakvabfgkljasgfhadslkmbnadljkghga;sdklfjnaksjmbnvakjsgfasdh;flkasndvshdfgkasldjfkldsanvbajhg;ldfjgklasnfgkasbfdg;kaj;glk"
+subtitles_padding = 0.5
+is_character_dialogue = true
 
-[node name="AudioVisualObject7" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.3604, 7.62939e-06, -136.356 )
-
-[node name="AudioVisualObject8" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 154.459, 7.62939e-06, -137.589 )
-
-[node name="AudioVisualObject9" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 240.341, 7.62939e-06, -20.8874 )
-
-[node name="AudioVisualObject10" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 71.8638, 7.62939e-06, -74.7179 )
-
-[node name="AudioVisualObject11" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32.5099, 7.62939e-06, -65.2668 )
-
-[node name="AudioVisualObject12" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -59.6306, 7.62939e-06, 24.7247 )
-
-[node name="AudioVisualObject13" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 159.39, 7.62939e-06, 62.5293 )
-
-[node name="AudioVisualObject14" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 126.516, 7.62939e-06, -1.98511 )
-
-[node name="AudioVisualObject15" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 85.4241, 7.62939e-06, 97.4575 )
-
-[node name="AudioVisualObject16" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6075, 7.62939e-06, 139.782 )
-
-[node name="AudioVisualObject17" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -94.5588, 7.62939e-06, 134.851 )
-
-[node name="AudioVisualObject18" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -43.1938, 7.62939e-06, 85.9518 )
-
-[node name="AudioVisualObject19" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 45.9758, 7.62939e-06, 80.1989 )
-
-[node name="AudioVisualObject20" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.0879, 7.62939e-06, 39.9288 )
-
-[node name="AudioVisualObject21" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -68.6708, 7.62939e-06, -5.68335 )
-
-[node name="AudioVisualObject22" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -164.826, 7.62939e-06, 18.15 )
-
-[node name="AudioVisualObject23" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -207.151, 7.62939e-06, -34.0368 )
-
-[node name="AudioVisualObject24" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -203.863, 7.62939e-06, -75.1288 )
-
-[node name="AudioVisualObject25" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -159.484, 7.62939e-06, -84.58 )
-
-[node name="AudioVisualObject26" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -112.228, 7.62939e-06, -87.8673 )
-
-[node name="AudioVisualObject27" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -90.8605, 7.62939e-06, -147.04 )
-
-[node name="AudioVisualObject28" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -56.7541, 7.62939e-06, -90.3328 )
-
-[node name="AudioVisualObject29" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -79.7656, 7.62939e-06, -30.3385 )
-
-[node name="AudioVisualObject30" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.1569, 7.62939e-06, -34.0368 )
-
-[node name="AudioVisualObject31" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.4442, 7.62939e-06, -82.5254 )
-
-[node name="AudioVisualObject32" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 33.2373, 7.62939e-06, -130.603 )
-
-[node name="AudioVisualObject33" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 97.7518, 7.62939e-06, -160.189 )
-
-[node name="AudioVisualObject34" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 86.7518, 7.62939e-06, -114.189 )
-
-[node name="AudioVisualObject35" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 149.212, 7.62939e-06, -80.9047 )
-
-[node name="AudioVisualObject36" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 97.4357, 7.62939e-06, -47.2093 )
-
-[node name="AudioVisualObject37" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 85.4357, 7.62939e-06, 15.7907 )
-
-[node name="AudioVisualObject38" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 99.8179, 7.62939e-06, 60.581 )
-
-[node name="AudioVisualObject39" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 159.401, 7.62939e-06, 102.906 )
-
-[node name="AudioVisualObject40" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 219.396, 7.62939e-06, 82.3597 )
-
-[node name="AudioVisualObject41" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 208.301, 7.62939e-06, 29.762 )
-
-[node name="AudioVisualObject42" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 194.74, 7.62939e-06, 12.0924 )
-
-[node name="AudioVisualObject43" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 162.278, 7.62939e-06, -23.6576 )
-
-[node name="AudioVisualObject44" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 192.275, 7.62939e-06, -59.4076 )
-
-[node name="AudioVisualObject45" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 222.683, 7.62939e-06, -121.457 )
-
-[node name="AudioVisualObject46" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 170.496, 7.62939e-06, -166.247 )
-
-[node name="AudioVisualObject47" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 177.893, 7.62939e-06, -97.6232 )
-
-[node name="AudioVisualObject48" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 240.352, 7.62939e-06, -76.2553 )
-
-[node name="AudioVisualObject49" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 198.439, 7.62939e-06, -35.1634 )
-
-[node name="AudioVisualObject50" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 98.5851, 2.28882e-05, 131.259 )
-
-[node name="AudioVisualObject51" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36.5363, 2.28882e-05, 141.532 )
+[node name="Timer" type="Timer" parent="AudioVisualObject4"]
+wait_time = 1.5
+autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "demonstration"
 anims/RESET = SubResource( 4 )
 anims/demonstration = SubResource( 5 )
 anims/quick_demo = SubResource( 8 )
+
+[connection signal="timeout" from="AudioVisualObject4/Timer" to="AudioVisualObject4" method="_on_Timer_timeout"]
