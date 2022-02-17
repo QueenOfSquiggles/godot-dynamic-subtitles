@@ -12,6 +12,10 @@ export (String) var subtitle_key := ""
 # setting this to be negative will shorten the subtitle. Which can cause problems in some cases
 export (float) var subtitles_padding := 0.0
 
+# determines whether to push this subtitle to the dialogue layer or to a spatialized layer. 
+# character dialogues are handled in a way that assumes it is crucial the player is able to read them all. They are not required to have any specific character information in the subtitle_key
+export (bool) var is_character_dialogue := false
+
 # a path to a node which will override the position calculations for the subtitle. 
 # This can be any node, but only Node2D and Spatial derived nodes will affect the positioning
 # if this is null, the parent node is used
@@ -30,14 +34,22 @@ var _last_check := false
 # This node MUST be parented to an AudioStreamPlayer, AudioStreamPlayer2D, or AudioStreamPlayer3D, or a derived stream player. Otherwise the system will fail to recognize it.
 onready var parent :Node = get_parent()
 
+var is_event_driven := false
+
+func _ready() -> void:
+	if parent.has_signal("audio_start"):
+		parent.connect("audio_start", self, "trigger_audio_play")
+		is_event_driven = true
+		self.set_process(false)
+	else:
+		push_warning("SubtitleNode [%s] will be running in process mode, use the 'Attach Event Scripts in Scene' tool to attach scripts to convert standard AudioStreamPlayers into event driven players. This will only work for built-in AudioStreamPlayer nodes" % get_path())
 
 func _process(delta: float) -> void:
 	var cur :bool = parent.playing # this will throw an error if the parent isn't an AudioStreamPlayer node. Check the node parent if you got here from the debugger!
 	if cur and not _last_check:
 		trigger_audio_play()
-	var asp := parent as AudioStreamPlayer
 	_last_check = cur
 
 func trigger_audio_play() -> void:
 	emit_signal("on_play") # this addon does not make use of this signal, but it is there should a need exist
-	Subtitles.add_subtitle(self, parent, subtitle_theme_override)
+	Subtitles.add_subtitle(self, parent)

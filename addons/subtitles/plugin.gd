@@ -3,20 +3,47 @@ extends EditorPlugin
 
 const SINGLETON := "Subtitles"
 const GEN_SUBS_NAME := "Generate SubtitleData in Scene"
+const MAKE_EVENT_NAME := "Attach Event Scripts in Scene"
 
-onready var subtitle_data_script := preload("res://addons/subtitles/scenes/SubtitleData.gd")
+#onready var subtitle_data_script := preload("res://addons/subtitles/scenes/SubtitleData.gd") as Script
 
 func _enter_tree() -> void:
-	add_custom_type("SubtitleData", "Node", subtitle_data_script, null)
+	#add_custom_type("SubtitleData", "Node", subtitle_data_script, null)
+	
 	add_autoload_singleton(SINGLETON, "res://addons/subtitles/scenes/Subtitles.gd")
 	add_tool_menu_item(GEN_SUBS_NAME, self, "_tool_gen_subdata_in_scene")
-
-
+	add_tool_menu_item(MAKE_EVENT_NAME, self, "_tool_make_event_in_scene")
+	
 func _exit_tree() -> void:
-	remove_custom_type("SubtitleData")
+	#remove_custom_type("SubtitleData")
 	remove_autoload_singleton(SINGLETON)
 	remove_tool_menu_item(GEN_SUBS_NAME)
+	remove_tool_menu_item(MAKE_EVENT_NAME)
+	
 
+func _tool_make_event_in_scene(args) -> void:
+	var scene := get_tree().edited_scene_root
+	var audio_nodes := _recurse_get_audio_nodes(scene)
+	
+	var script_node := load("res://addons/subtitles/scripts/ASP_Events.gd")
+	var script_node2D := load("res://addons/subtitles/scripts/ASP_2D_Events.gd")
+	var script_node3D := load("res://addons/subtitles/scripts/ASP_3D_Events.gd")
+	
+	
+	#print("Found %s audio nodes in current scene" % str(audio_nodes.size()))
+	for a in audio_nodes:
+		var audio := a as Node
+		#print(audio.name)
+		if audio.get_script() == null:
+			if audio is AudioStreamPlayer:
+				audio.set_script(script_node)
+			elif audio is AudioStreamPlayer2D:
+				audio.set_script(script_node2D)
+			elif audio is AudioStreamPlayer3D:
+				audio.set_script(script_node3D)
+			else:
+				print(">\tFailed to find appropraite script for %s, not recognized as an audio player node" % audio.get_path())
+		
 
 func _tool_gen_subdata_in_scene(args) -> void:
 	var scene := get_tree().edited_scene_root
