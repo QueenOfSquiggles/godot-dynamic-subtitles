@@ -30,12 +30,20 @@ var _last_check := false
 # This node MUST be parented to an AudioStreamPlayer, AudioStreamPlayer2D, or AudioStreamPlayer3D, or a derived stream player. Otherwise the system will fail to recognize it.
 onready var parent :Node = get_parent()
 
+var is_event_driven := false
+
+func _ready() -> void:
+	if parent.has_signal("audio_start"):
+		parent.connect("audio_start", self, "trigger_audio_play")
+		is_event_driven = true
+		self.set_process(false)
+	else:
+		push_warning("SubtitleNode [%s] will be running in process mode, use the 'Attach Event Scripts in Scene' tool to attach scripts to convert standard AudioStreamPlayers into event driven players. This will only work for built-in AudioStreamPlayer nodes" % get_path())
 
 func _process(delta: float) -> void:
 	var cur :bool = parent.playing # this will throw an error if the parent isn't an AudioStreamPlayer node. Check the node parent if you got here from the debugger!
 	if cur and not _last_check:
 		trigger_audio_play()
-	var asp := parent as AudioStreamPlayer
 	_last_check = cur
 
 func trigger_audio_play() -> void:

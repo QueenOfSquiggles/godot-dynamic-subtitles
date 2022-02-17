@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://addons/subtitles/scenes/SubtitleData.gd" type="Script" id=1]
 [ext_resource path="res://testing/resources/object_mat.tres" type="Material" id=2]
 [ext_resource path="res://testing/scripts/AudioVisualObject.gd" type="Script" id=3]
 [ext_resource path="res://testing/resources/impactMetal_000.ogg" type="AudioStream" id=4]
+[ext_resource path="res://addons/subtitles/scripts/ASP_3D_Events.gd" type="Script" id=5]
 
 [sub_resource type="SphereMesh" id=3]
 radius = 0.5
@@ -14,18 +15,18 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.72074 )
 mesh = SubResource( 3 )
 material/0 = ExtResource( 2 )
 script = ExtResource( 3 )
+audio_player = NodePath("AudioTest3D")
 
 [node name="AudioTest3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource( 4 )
+script = ExtResource( 5 )
 
 [node name="SubtitleData" type="Node" parent="AudioTest3D"]
 script = ExtResource( 1 )
 subtitle_key = "impact_metal"
-subtitles_padding = 60.0
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.1
-one_shot = true
+wait_time = 1.5
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
