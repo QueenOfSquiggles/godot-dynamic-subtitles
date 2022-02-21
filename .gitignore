@@ -5,7 +5,6 @@ export.cfg
 export_presets.cfg
 
 # project specific ignores (cleans for downloads)
-testing
 
 # Mono-specific ignores
 .mono/
