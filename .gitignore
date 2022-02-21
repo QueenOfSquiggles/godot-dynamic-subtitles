@@ -5,7 +5,7 @@ export.cfg
 export_presets.cfg
 
 # project specific ignores (cleans for downloads)
-#testing
+testing/
 SubtitlesDemo.tscn
 
 # Mono-specific ignores
