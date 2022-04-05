@@ -14,6 +14,7 @@ var _viewport_size_cache := Vector2()
 func _ready() -> void:
 	get_tree().root.get_viewport().connect("size_changed", self, "_cache_viewport_size")
 	_cache_viewport_size()
+	#self.pause_mode = Node.PAUSE_MODE_PROCESS
 
 func _cache_viewport_size() -> void:
 	var viewport := get_tree().root.get_viewport()
@@ -36,6 +37,8 @@ func _update_subtitles() -> void:
 		
 
 func _update_subtitle_position(panel : PanelContainer, cam : Camera) -> void:
+	if not is_instance_valid(cam) or not is_instance_valid(panel):
+		return
 	if _position_mapping.has(panel.name):
 		var position : Spatial = _position_mapping[panel.name]
 		var pos_calc := cam.unproject_position(position.global_transform.origin)
@@ -166,3 +169,18 @@ func _connect_mapping_erase(panel : PanelContainer) -> void:
 
 func _clear_mapping(key : String) -> void:
 	_position_mapping.erase(key)
+
+func clear() -> void:
+	# clears the subtitles
+	set_visible(false)
+	for c in get_children():
+		c.queue_free()
+		remove_child(c)
+	_position_mapping.clear()
+
+	self._process(0.1)
+
+func set_visible(is_visible : bool) -> void:
+	for c in get_children():
+		if c is Control:
+			(c as Control).visible = is_visible

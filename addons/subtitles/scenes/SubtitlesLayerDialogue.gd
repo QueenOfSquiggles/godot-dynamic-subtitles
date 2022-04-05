@@ -33,6 +33,7 @@ func _ready() -> void:
 	_dialogue_stack.margin_left = side_padding
 	_dialogue_stack.margin_right = -side_padding
 	_dialogue_stack.margin_bottom = -bottom_padding
+	_dialogue_stack.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 func add_subtitle(stream_node : Node, sub_data : SubtitleData, theme_override : Theme = null) -> void:
 	_dialogue_queue.append(Dialogue.new(stream_node, sub_data, theme_override))
@@ -43,6 +44,8 @@ func _refresh_stack() -> void:
 		# add subtitle to stack
 		var dialogue := _dialogue_queue.pop_front() as Dialogue
 		var sub := _create_sub(dialogue.sub_data)
+		if not sub:
+			return
 		_dialogue_stack.add_child(sub)
 		_create_subtitle_timer(sub, dialogue.stream_node, dialogue.sub_data)
 		sub.connect("tree_exited", self, "_refresh_stack", [], CONNECT_DEFERRED) # one frame after it exits the tree, refresh the stack again
@@ -50,6 +53,8 @@ func _refresh_stack() -> void:
 			sub.theme = dialogue.theme_override
 
 func _create_sub(sub_data : SubtitleData) -> PanelContainer:
+	if not is_instance_valid(sub_data):
+		return null
 	var panel := PanelContainer.new()
 	var key := sub_data.subtitle_key
 	if key.find(":") != -1:
@@ -86,3 +91,17 @@ func _create_panel_name(panel : PanelContainer, sub_data : SubtitleData) -> void
 	panel.name = "SubCharacter_" + sub_data.subtitle_key + "_" + str(_subtitle_id).pad_zeros(3)
 	_subtitle_id += 1
 	_subtitle_id %= 999
+
+func _process(delta: float) -> void:
+	self.name = str(self.name) # dummy process to ensure soemthing happens
+
+func clear() -> void:
+	set_visible(false)
+	for c in _dialogue_stack.get_children():
+		c.queue_free()
+		_dialogue_stack.remove_child(c)
+
+func set_visible(is_visible : bool) -> void:
+	for c in _dialogue_stack.get_children():
+		if c is Control:
+			(c as Control).visible = is_visible

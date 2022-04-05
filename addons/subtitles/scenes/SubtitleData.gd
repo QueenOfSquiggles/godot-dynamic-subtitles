@@ -42,6 +42,7 @@ func _ready() -> void:
 		is_event_driven = true
 		self.set_process(false)
 	else:
+		# if this is intended, feel free to delete the warning push
 		push_warning("SubtitleNode [%s] will be running in process mode, use the 'Attach Event Scripts in Scene' tool to attach scripts to convert standard AudioStreamPlayers into event driven players. This will only work for built-in AudioStreamPlayer nodes" % get_path())
 
 func _process(delta: float) -> void:
@@ -52,4 +53,4 @@ func _process(delta: float) -> void:
 
 func trigger_audio_play() -> void:
 	emit_signal("on_play") # this addon does not make use of this signal, but it is there should a need exist
-	Subtitles.add_subtitle(self, parent)
+	get_tree().root.get_node("Subtitles").add_subtitle(self, parent)
