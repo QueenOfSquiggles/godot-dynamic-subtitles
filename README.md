@@ -1,8 +1,22 @@
 # godot-dynamic-subtitles
-An addon for easily implementing subtitles using the built-in sound system.
+An addon for easily implementing subtitles using the built-in audio system in the Godot Engine.
 
-For helpful information refer to [the wiki](https://github.com/QueenOfSquiggles/godot-dynamic-subtitles/wiki)
+For more helpful information and details refer to [the wiki](https://github.com/QueenOfSquiggles/godot-dynamic-subtitles/wiki)
 
-This addon is currently in heavy development. The goal is to make a system that properly handles subtitles in a way that allows for jam games to be more accessible. I plan on using this addon in my future projects including a horror game inspired by Alien: Isolation. 
+# Features
+## Subtitle System
+* Dialogue Subtitles
+  * Subtitles stack and snap to bottom of screen. 
+* 3D spatial subtitles
+  * Subtitles reposition to track the 3D node's position
 
-As more features are developed and solidified, I'll provide more proper documentation for use cases. However, the code has lots of comments so if you can figure out how it all works feel free to use it, hack it, whatever you desire!
+## Helpful tool:
+There is a tool script for automatically converting an existing scene tree to one compatible with the subtitles system. Every AudioStreamPlayer node is given a SubtitleData child node which is what handles the passing of subtitle data
+
+
+## Translations!
+Because all subtitles use Godot's built-in `Label`, they are all automatically translated using Godot's built-in [Translation & Localization System](https://docs.godotengine.org/en/stable/tutorials/i18n/internationalizing_games.html)
+
+## Customization
+Every SubtitleData node has an option to have an overriding `Theme` asset to affect the subtitle. They also allow for padding subtitle duration, changing what spatial position is used for the playing of audio. etc...
+More details [here at the Wiki page for the SubtitleData node](https://github.com/QueenOfSquiggles/godot-dynamic-subtitles/wiki/SubtitleData-Node)
