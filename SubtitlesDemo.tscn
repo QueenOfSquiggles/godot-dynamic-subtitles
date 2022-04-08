@@ -254,7 +254,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.53584, 0 )
 current = true
 
 [node name="Camera2" type="Camera" parent="."]
-transform = Transform( 0.994109, -0.0142853, 0.107436, 0, 0.991275, 0.131807, -0.108381, -0.13103, 0.985436, 5.73682, 6.74087, 28.1981 )
+transform = Transform( 0.994109, -0.0142853, 0.107435, 0, 0.991275, 0.131807, -0.108381, -0.13103, 0.985436, 5.73682, 6.74087, 28.1981 )
 environment = SubResource( 7 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
