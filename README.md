@@ -3,6 +3,24 @@ An addon for easily implementing subtitles using the built-in audio system in th
 
 For more helpful information and details refer to [the wiki](https://github.com/QueenOfSquiggles/godot-dynamic-subtitles/wiki)
 
+
+# Really fast install & go
+
+If you already have some `AudioStreamPlayer` nodes in existing scene trees, it is super easy to get them all set up for subtitles.
+
+1. Open the scene that contains the `AudioStreamPlayer` nodes that you want subtitles on
+2. Go to Project -> Tools -> "Generate SubtitleData in Scene"
+    * This will add a `SubtitleData` node as a child to all `AudioStreamPlayer` nodes in the scene tree
+3. The subtitle text/id is automatically populated with the name of your `AudioStreamPlayer` node, feel free to go through and change them to whatever you like
+    * If you want to tweak more settings, refer to the [SubtitleData Node](https://github.com/QueenOfSquiggles/godot-dynamic-subtitles/wiki/SubtitleData-Node) page for more information
+4. Go to Project -> Tools -> "Attach Event Scripts in Scene"
+    * This will attach a script to all `AudioStreamPlayer` nodes in your scene tree that do not otherwise have a script attached. These scripts will allow the subtitles to work event-driven which greatly reduces the processing time for inactive subtitles (to roughly 0ms)
+5. Play your `AudioStreamPlayer` nodes as you normally would, and the subtitle with the subtitle text you set should display.
+
+![tool scripts preview](https://user-images.githubusercontent.com/8940604/162343226-780322a6-8c79-4f97-bf31-ec1b2144b9b0.png)
+
+***
+
 # Features
 ## Subtitle System
 * Dialogue Subtitles
