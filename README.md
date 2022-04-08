@@ -1,4 +1,7 @@
 # godot-dynamic-subtitles
+
+![icon](https://user-images.githubusercontent.com/8940604/162344129-e88f66ea-928b-4650-86da-f58e8ad2985f.png)
+
 An addon for easily implementing subtitles using the built-in audio system in the Godot Engine.
 
 For more helpful information and details refer to [the wiki](https://github.com/QueenOfSquiggles/godot-dynamic-subtitles/wiki)
