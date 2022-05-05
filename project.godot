@@ -39,7 +39,6 @@ _global_script_class_icons={
 [application]
 
 config/name="godot-dynamic-subtitles"
-run/main_scene="res://SubtitlesDemo.tscn"
 boot_splash/fullsize=false
 boot_splash/use_filter=false
 config/icon="res://icon.png"
@@ -50,7 +49,7 @@ Subtitles="*res://addons/subtitles/scenes/Subtitles.gd"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/subtitles/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/google_fonts/plugin.cfg", "res://addons/subtitles/plugin.cfg" )
 
 [importer_defaults]
 
