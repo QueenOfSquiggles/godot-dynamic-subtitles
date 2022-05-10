@@ -5,15 +5,34 @@ const SINGLETON := "Subtitles"
 const GEN_SUBS_NAME := "Generate SubtitleData in Scene"
 const MAKE_EVENT_NAME := "Attach Event Scripts in Scene"
 
-#onready var subtitle_data_script := preload("res://addons/subtitles/scenes/SubtitleData.gd") as Script
+const SETTING_SUBS_ENABLED := "Subtitles/General/subtitles_enabled"
+const SETTING_AUTO_LINE_SPLIT := "Subtitles/General/use_auto_dialogue_line_splitter"
+const SETTING_AUTO_LINE_SPLIT_REGEX := "Subtitles/Advanced/auto_line_splitter_regular_expression"
 
 func _enter_tree() -> void:
-	#add_custom_type("SubtitleData", "Node", subtitle_data_script, null)
+	# add project settings
+	_add_setting_if_not_present(SETTING_SUBS_ENABLED, TYPE_BOOL, true)
+	_add_setting_if_not_present(SETTING_AUTO_LINE_SPLIT, TYPE_BOOL, true)
+	_add_setting_if_not_present(SETTING_AUTO_LINE_SPLIT_REGEX, TYPE_STRING, "\\W")
 	
+	# Add elements
 	add_autoload_singleton(SINGLETON, "res://addons/subtitles/scenes/Subtitles.gd")
 	add_tool_menu_item(GEN_SUBS_NAME, self, "_tool_gen_subdata_in_scene")
 	add_tool_menu_item(MAKE_EVENT_NAME, self, "_tool_make_event_in_scene")
-	
+
+func _add_setting_if_not_present(setting_name : String, type : int, default_value) -> void:
+	# checks to see if a setting is present, and adds it with the default value if it is not
+	if not ProjectSettings.has_setting(setting_name):
+		print("Attempting to add %s to ProjectSettings" % setting_name)
+		ProjectSettings.set(setting_name, default_value)
+		ProjectSettings.add_property_info({
+			"name" : setting_name,
+			"type" : type
+		})
+		print("Successfully added %s to ProjectSettings? %s" % [setting_name, str(ProjectSettings.has_setting(setting_name))])
+	else:
+		print("ProjectSettings already contains : %s" % setting_name)
+
 func _exit_tree() -> void:
 	#remove_custom_type("SubtitleData")
 	remove_autoload_singleton(SINGLETON)

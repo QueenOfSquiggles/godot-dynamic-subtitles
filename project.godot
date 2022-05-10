@@ -36,9 +36,16 @@ _global_script_class_icons={
 "SubtitlesLayerDialogue": ""
 }
 
+[Subtitles]
+
+General/subtitles_enabled=true
+General/use_auto_dialogue_line_splitter=true
+Advanced/auto_line_splitter_regular_expression="\\W"
+
 [application]
 
 config/name="godot-dynamic-subtitles"
+run/main_scene="res://TestScene/TestScene.tscn"
 boot_splash/fullsize=false
 boot_splash/use_filter=false
 config/icon="res://icon.png"
@@ -49,7 +56,7 @@ Subtitles="*res://addons/subtitles/scenes/Subtitles.gd"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/google_fonts/plugin.cfg", "res://addons/subtitles/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/subtitles/plugin.cfg" )
 
 [importer_defaults]
 
@@ -103,7 +110,7 @@ jump={
 
 [locale]
 
-translations=PoolStringArray( "res://testing/localization/translation_exported_file.en.translation", "res://testing/localization/translation_exported_file.es.translation", "res://testing/localization/translation_exported_file.ja.translation" )
+translations=PoolStringArray(  )
 locale_filter=[ 1, [ "en_US" ] ]
 
 [physics]

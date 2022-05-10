@@ -19,7 +19,6 @@ func _ready() -> void:
 func _cache_viewport_size() -> void:
 	var viewport := get_tree().root.get_viewport()
 	_viewport_size_cache = viewport.size
-	print("Cached viewport size : ", _viewport_size_cache)
 
 func _process(_delta : float) -> void:
 	_update_subtitles() 

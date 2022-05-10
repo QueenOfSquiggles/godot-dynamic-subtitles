@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://addons/subtitles/scenes/SubtitleData.gd" type="Script" id=1]
+[ext_resource path="res://addons/subtitles/scripts/ASP_3D_Events.gd" type="Script" id=2]
+[ext_resource path="res://TestScene/chonkus_idle_sounds-04.ogg" type="AudioStream" id=3]
+[ext_resource path="res://TestScene/TestScene.gd" type="Script" id=4]
+
+[node name="Spatial" type="Spatial"]
+script = ExtResource( 4 )
+
+[node name="DialogueSub" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 3 )
+script = ExtResource( 2 )
+
+[node name="SubtitleData" type="Node" parent="DialogueSub"]
+script = ExtResource( 1 )
+subtitle_key = "Tell me, O Muse, of that ingenious hero who travelled far and wide after he had sacked the famous town of Troy. Many cities did he visit, and many were the nations with whose manners and customs he was acquainted; moreover he suffered much by sea while trying to save his own life and bring his men safely home; but do what he might he could not save his men, for they perished through their own sheer folly in eating the cattle of the Sun-god Hyperion; so the god prevented them from ever reaching home. Tell me, too, about all these things, oh daughter of Jove, from whatsoever source you may know them."
+is_character_dialogue = true
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.6722 )
+current = true

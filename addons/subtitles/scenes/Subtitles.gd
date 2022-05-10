@@ -13,15 +13,17 @@ var default_subtitle_theme := preload("res://addons/subtitles/default_theming/ba
 """
 Editable Subtitles Settings
 
-"""
-var subtitles_enabled := true
+These should be available in Project Settings, which may be easier to use than through code
 
+"""
+const SETTING_SUBS_ENABLED := "Subtitles/General/subtitles_enabled"
+const SETTING_AUTO_LINE_SPLIT := "Subtitles/General/use_auto_dialogue_line_splitter"
+var subtitles_enabled := true
+var use_auto_dialogue_line_splitter := true
 
 func _ready() -> void:
-	subtitles_enabled = false
-	call_deferred("_setup")
-
-func _setup() -> void:
+	subtitles_enabled = ProjectSettings.get_setting(SETTING_SUBS_ENABLED)
+	use_auto_dialogue_line_splitter = ProjectSettings.get_setting(SETTING_AUTO_LINE_SPLIT)
 	layer_3D = SubtitlesLayer3D.new()
 	layer_2D = SubtitlesLayer2D.new()
 	layer_dialogue = SubtitlesLayerDialogue.new()
@@ -38,7 +40,9 @@ func _setup() -> void:
 func add_subtitle(sub_data : Node, audio_stream : Node) -> void:
 	# we have to type `sub_data` as Node instead of SubtitlesData because it introduces a cyclic dependency. This class actually doesn't care what node that is because we just pass it along to the proper layer
 	if not subtitles_enabled:
+		push_warning("Subtitles is currently disabled, no subtitles will be shown.")
 		return
+	
 	var theme_override = null
 	if sub_data.subtitle_theme_override == null:
 		# use default theme for any that don't have a theme specified
@@ -59,7 +63,6 @@ func add_subtitle(sub_data : Node, audio_stream : Node) -> void:
 		layer_dialogue.add_subtitle(audio_stream, sub_data, theme_override)
 
 func clear_subtitles() -> void:
-	print("Clearing subtitles")
 	layer_3D.clear()
 	layer_2D.clear()
 	layer_dialogue.clear()
