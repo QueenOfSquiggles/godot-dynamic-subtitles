@@ -9,6 +9,8 @@ const SETTING_SUBS_ENABLED := "Subtitles/General/subtitles_enabled"
 const SETTING_AUTO_LINE_SPLIT := "Subtitles/General/use_auto_dialogue_line_splitter"
 const SETTING_AUTO_LINE_SPLIT_REGEX := "Subtitles/Advanced/auto_line_splitter_regular_expression"
 
+const PATH_FONT_OPEN_DYSLEXIC := "res://addons/subtitles/default_theming/open_dyslexic/OpenDyslexic2 (Windows, MacOS, Linux OTF)/OpenDyslexic-Regular.otf"
+
 func _enter_tree() -> void:
 	# add project settings
 	_add_setting_if_not_present(SETTING_SUBS_ENABLED, TYPE_BOOL, true)
