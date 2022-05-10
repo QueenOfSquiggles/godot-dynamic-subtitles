@@ -40,7 +40,7 @@ _global_script_class_icons={
 
 General/subtitles_enabled=true
 General/use_auto_dialogue_line_splitter=true
-Advanced/auto_line_splitter_regular_expression="\\W"
+Advanced/auto_line_splitter_regular_expression="[^.|,|!|?|\"|'|:|;|`|º|,|\\s]+"
 
 [application]
 

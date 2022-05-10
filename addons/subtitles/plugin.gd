@@ -15,7 +15,7 @@ func _enter_tree() -> void:
 	# add project settings
 	_add_setting_if_not_present(SETTING_SUBS_ENABLED, TYPE_BOOL, true)
 	_add_setting_if_not_present(SETTING_AUTO_LINE_SPLIT, TYPE_BOOL, true)
-	_add_setting_if_not_present(SETTING_AUTO_LINE_SPLIT_REGEX, TYPE_STRING, "\\W")
+	_add_setting_if_not_present(SETTING_AUTO_LINE_SPLIT_REGEX, TYPE_STRING, "[^.|,|!|?|\"|'|:|;|`|º|,|\\s]+")
 	
 	# Add elements
 	add_autoload_singleton(SINGLETON, "res://addons/subtitles/scenes/Subtitles.gd")

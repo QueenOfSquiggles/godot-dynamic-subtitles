@@ -49,11 +49,12 @@ func add_subtitle(stream_node : Node, sub_data : SubtitleData, theme_override : 
 		_dialogue_queue.append(Dialogue.new(stream_node, sub_data, theme_override))
 	else:
 		var parts := _parse_subtitle_lines(sub_data)
+		#print("parts=%s" % str(parts))
 		for p in parts.values(): # parts should be an dict of string tokens, representing the dialogue as a whole
 			var text := p["text"] as String
 			var token_count := p["token_count"] as int
 			var n_sub_data := sub_data.duplicate() as SubtitleData
-			n_sub_data.subtitles_padding = float(token_count) * 0.33 # BBC says 0.33 seconds per word
+			n_sub_data.subtitles_padding = float(token_count) * 0.5 # BBC says 0.33 seconds per word, but this is a better buffer for video games I think
 			var dia := Dialogue.new(stream_node, n_sub_data, theme_override)
 			dia.override_text = text
 			_dialogue_queue.append(dia)
@@ -67,7 +68,8 @@ func _parse_subtitle_lines(sub_data : SubtitleData) -> Dictionary:
 	var regEx := RegEx.new()
 	regEx.compile(auto_split_regex)
 	var elements := _regex_split(full_text, regEx)
-	print("Total tokens in dialogue : %s" % str(elements.size()))
+	#print("elements=%s" % str(elements))
+	#print("Total tokens in dialogue : %s" % str(elements.size()))
 
 	var counter := 0
 	var current_line := ""
@@ -84,6 +86,10 @@ func _parse_subtitle_lines(sub_data : SubtitleData) -> Dictionary:
 			current_line = ""
 			counter = 0
 			element_num += 1
+	parts[element_num] = { # chain the final tokens that were left behind by the loop
+		"text" : current_line,
+		"token_count" : counter
+		}	
 	return parts
 
 func _regex_split(input : String, regEx : RegEx) -> Array:
