@@ -10,7 +10,12 @@ var layer_dialogue : SubtitlesLayerDialogue
 
 var default_subtitle_theme := preload("res://addons/subtitles/default_theming/base_theme.tres")
 
+"""
+Editable Subtitles Settings
+
+"""
 var subtitles_enabled := true
+
 
 func _ready() -> void:
 	subtitles_enabled = false
