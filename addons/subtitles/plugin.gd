@@ -21,6 +21,7 @@ func _enter_tree() -> void:
 	add_autoload_singleton(SINGLETON, "res://addons/subtitles/scenes/Subtitles.gd")
 	add_tool_menu_item(GEN_SUBS_NAME, self, "_tool_gen_subdata_in_scene")
 	add_tool_menu_item(MAKE_EVENT_NAME, self, "_tool_make_event_in_scene")
+	add_custom_type("CustomViewportFix", "Node", load("res://addons/subtitles/scripts/CustomViewportFix.gd"), null)
 
 func _add_setting_if_not_present(setting_name : String, type : int, default_value) -> void:
 	# checks to see if a setting is present, and adds it with the default value if it is not
@@ -40,6 +41,7 @@ func _exit_tree() -> void:
 	remove_autoload_singleton(SINGLETON)
 	remove_tool_menu_item(GEN_SUBS_NAME)
 	remove_tool_menu_item(MAKE_EVENT_NAME)
+	remove_custom_type("CustomViewportFix")
 	
 
 func _tool_make_event_in_scene(args) -> void:
@@ -106,3 +108,4 @@ func _is_audio_node(node : Node) -> bool:
 	if node is AudioStreamPlayer3D:
 		return true
 	return false
+

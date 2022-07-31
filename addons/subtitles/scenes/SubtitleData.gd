@@ -29,6 +29,7 @@ signal on_play
 
 # cached value of parent:playing
 var _last_check := false
+var audio_max_distance := 10.0
 
 # the parent node
 # This node MUST be parented to an AudioStreamPlayer, AudioStreamPlayer2D, or AudioStreamPlayer3D, or a derived stream player. Otherwise the system will fail to recognize it.
@@ -45,12 +46,16 @@ func _ready() -> void:
 		# if this is intended, feel free to delete the warning push
 		push_warning("SubtitleNode [%s] will be running in process mode, use the 'Attach Event Scripts in Scene' tool to attach scripts to convert standard AudioStreamPlayers into event driven players. This will only work for built-in AudioStreamPlayer nodes" % get_path())
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var cur :bool = parent.playing # this will throw an error if the parent isn't an AudioStreamPlayer node. Check the node parent if you got here from the debugger!
 	if cur and not _last_check:
 		trigger_audio_play()
 	_last_check = cur
 
 func trigger_audio_play() -> void:
+	var a3d := get_parent() as AudioStreamPlayer3D
+	if a3d and a3d.max_distance > 0.0:
+		audio_max_distance = a3d.max_distance
+		
 	emit_signal("on_play") # this addon does not make use of this signal, but it is there should a need exist
 	get_tree().root.get_node("Subtitles").add_subtitle(self, parent)

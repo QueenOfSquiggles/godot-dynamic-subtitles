@@ -16,19 +16,17 @@ Editable Subtitles Settings
 These should be available in Project Settings, which may be easier to use than through code
 
 """
-const SETTING_SUBS_ENABLED := "Subtitles/General/subtitles_enabled"
-const SETTING_AUTO_LINE_SPLIT := "Subtitles/General/use_auto_dialogue_line_splitter"
 var subtitles_enabled := true
 var use_auto_dialogue_line_splitter := true
+var custom_viewport_scale := 1.0
+
+signal on_viewport_changed(viewport)
 
 func _ready() -> void:
-	subtitles_enabled = ProjectSettings.get_setting(SETTING_SUBS_ENABLED)
-	use_auto_dialogue_line_splitter = ProjectSettings.get_setting(SETTING_AUTO_LINE_SPLIT)
 	layer_3D = SubtitlesLayer3D.new()
 	layer_2D = SubtitlesLayer2D.new()
 	layer_dialogue = SubtitlesLayerDialogue.new()
 
-	subtitles_enabled = true
 	add_child(layer_3D)
 	add_child(layer_2D)
 	add_child(layer_dialogue)
@@ -39,8 +37,7 @@ func _ready() -> void:
 
 func add_subtitle(sub_data : Node, audio_stream : Node) -> void:
 	# we have to type `sub_data` as Node instead of SubtitlesData because it introduces a cyclic dependency. This class actually doesn't care what node that is because we just pass it along to the proper layer
-	if not subtitles_enabled:
-		push_warning("Subtitles is currently disabled, no subtitles will be shown.")
+	if subtitles_enabled == false:
 		return
 	
 	var theme_override = null
@@ -76,3 +73,11 @@ func show() -> void:
 	layer_3D.set_visible(true)
 	layer_2D.set_visible(true)
 	layer_dialogue.set_visible(true)
+
+func set_viewport(viewport : Viewport) -> void:
+	if not is_instance_valid(get_tree()):
+		# for some reason this always produces an error. But it's fine because that only happens when the game is closing anyway
+		return
+	emit_signal("on_viewport_changed", viewport)
+	if not viewport.is_connected("tree_exiting", self, "set_viewport"):
+		viewport.connect("tree_exiting", self, "set_viewport", [get_tree().root.get_viewport()])

@@ -163,7 +163,7 @@ func _create_panel_name(panel : PanelContainer, sub_data : SubtitleData) -> void
 	_subtitle_id += 1
 	_subtitle_id %= 999
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	self.name = str(self.name) # dummy process to ensure soemthing happens
 
 func clear() -> void:
