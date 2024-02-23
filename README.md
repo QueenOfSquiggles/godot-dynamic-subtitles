@@ -1,5 +1,8 @@
 # godot-dynamic-subtitles
 
+> (Note as of February 23rd, 2024)
+> I do think this is a pretty good addon in terms of what it provides. I am hoping to make a newer version at some point, likely for Godot 4. But that addon will likely have a name change. If you're desperate for that addon, go pester me and/or donate some dollerydoos to me so I can afford to focus on my work. Thanks for y'alls support!
+
 ![icon](https://user-images.githubusercontent.com/8940604/162344129-e88f66ea-928b-4650-86da-f58e8ad2985f.png)
 
 An addon for easily implementing subtitles using the built-in audio system in the Godot Engine.
